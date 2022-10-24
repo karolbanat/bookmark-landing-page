@@ -1,0 +1,21 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mxn;
+
+@each $color, $shades in vars.$colors {
+	@each $shade, $value in $shades {
+		.text-#{$color}-#{$shade} {
+			color: $value;
+		}
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-center-sm {
+	text-align: center;
+	@include mxn.mq(medium) {
+		text-align: start;
+	}
+}

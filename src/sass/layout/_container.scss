@@ -1,0 +1,10 @@
+.container {
+	--max-container-width: 111rem;
+	--padding-inline: var(--spacer-rem-400);
+	margin-inline: auto;
+	width: min(100% - 2 * var(--padding-inline), var(--max-container-width));
+
+	&--small {
+		--max-container-width: 54rem;
+	}
+}
