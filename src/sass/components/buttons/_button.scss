@@ -1,24 +1,28 @@
 .button {
 	display: inline-block;
+	/* sizing */
 	padding-block: var(--spacer-em-300);
 	padding-inline: var(--spacer-em-600);
+	/* typography */
 	font-size: var(--fz-300);
 	font-weight: var(--fw-700);
 	text-decoration: none;
 	text-align: center;
 	line-height: 1;
 	color: var(--button-clr);
+	/* appearance */
 	background-color: var(--button-bg);
 	border: 2px solid var(--button-border);
 	border-radius: var(--borr-200);
 	box-shadow: var(--shadow-primary-200);
+	/* other */
 	cursor: pointer;
 	transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
 
 	&:hover,
 	&:focus {
 		--button-border: var(--button-hover-clr);
-		background-color: var(--button-hover-bg);
+		background-color: var(--button-hover-bg, button-bg);
 		color: var(--button-hover-clr, var(--button-clr));
 	}
 

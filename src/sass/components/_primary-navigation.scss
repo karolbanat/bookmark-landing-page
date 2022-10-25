@@ -9,6 +9,7 @@
 		padding-block: var(--spacer-rem-600);
 	}
 
+	/* data attribute to keep image and toggle button in front on mobile when navigation is expanded */
 	& [data-front] {
 		z-index: 99999;
 	}
@@ -18,24 +19,30 @@
 		display: flex;
 		gap: var(--nav-gap);
 
+		/* styles for small screens*/
 		@include mxn.max-mq(medium) {
 			$nav-bg: func.get-color(neutral, 700);
+			/* navigation positioned absolutely taking whole screen space */
 			position: absolute;
 			top: 0;
 			left: 0;
+			width: 100%;
+			height: 100vh;
+			/* layout */
 			display: none;
 			flex-direction: column;
+			/* spacing */
 			padding-block-start: 10.5rem;
 			padding-block-end: var(--spacer-rem-600);
 			padding-inline: var(--spacer-rem-300);
-			width: 100%;
-			height: 100vh;
+			/* appearance */
 			background-color: fade-out($nav-bg, 0.05);
 
 			&[data-expanded] {
 				display: flex;
 			}
 		}
+		/* for larger screens */
 		@include mxn.mq(medium) {
 			--nav-gap: var(--spacer-rem-600);
 			align-items: center;
@@ -43,30 +50,36 @@
 	}
 
 	&__nav-list {
+		/* display in column, taking whole inline space */
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		text-align: center;
 		width: 100%;
+		text-align: center;
 		@include mxn.mq(medium) {
+			/* for larger screen just display in row and put gap between links */
 			flex-direction: row;
 			gap: var(--nav-gap);
 		}
 	}
 
 	&__nav-item {
+		/* styling only for smaller screens */
 		@include mxn.max-mq(medium) {
 			$border-clr: func.get-color(neutral, 100);
 			padding-block: var(--spacer-em-300);
 			width: 100%;
+			/* transparent border at the top */
 			border-block-start: 1px solid fade-out($border-clr, 0.85);
 			&:last-of-type {
+				/* for last element transparent border at the bottom */
 				border-block-end: 1px solid fade-out($border-clr, 0.85);
 			}
 		}
 	}
 
 	&__nav-link {
+		/* overriding .link class styling */
 		--link-clr: var(--clr-neutral-100);
 		font-size: var(--fz-nav-link);
 		@include mxn.mq(medium) {
@@ -75,6 +88,7 @@
 	}
 
 	&__button {
+		/* overriding .button class styling for smaller screens */
 		@include mxn.max-mq(medium) {
 			--button-clr: var(--clr-neutral-100);
 			--button-bg: transparent;
@@ -88,14 +102,17 @@
 	}
 
 	&__toggle-button {
+		/* hiding on larger screens */
 		@include mxn.mq(medium) {
 			display: none;
 		}
 	}
 
 	&__socials {
+		/* to position social links at the bottom and in the middle */
 		margin-block-start: auto;
 		margin-inline: auto;
+		/* hide on larger screens */
 		@include mxn.mq(medium) {
 			display: none;
 		}
