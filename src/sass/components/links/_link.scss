@@ -1,0 +1,15 @@
+.link {
+	display: inline-block;
+	font-size: var(--fz-400);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: var(--ls-600);
+	color: var(--link-clr);
+	cursor: pointer;
+	transition: color 0.4s ease;
+
+	&:hover,
+	&:focus {
+		color: var(--link-hover-clr, var(--clr-accent-400));
+	}
+}

@@ -21,19 +21,26 @@
     <nav class="primary-navigation">
       <div class="container">
         <div class="flex-space-between">
-          <a href="#"><img src="./dist/images/logo-bookmark.svg" alt="Bookmark logo"></a>
-          <button aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav" class="toggle-button">
+          <a href="#" data-front><img src="./dist/images/logo-bookmark.svg" alt="Bookmark logo"></a>
+          <button aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"
+                  class="toggle-button primary-navigation__toggle-button" data-front>
             <img src="./dist/images/icon-hamburger.svg" alt="" class="toggle-button__icon-open">
-            <img src="./dist/images/icon-close.svg" alt="" class="toggle-button__icon-open">
+            <img src="./dist/images/icon-close.svg" alt="" class="toggle-button__icon-close">
           </button>
           <div id="primary-nav" class="primary-navigation__nav">
             <ul class="primary-navigation__nav-list">
-              <li><a href="#" class="link primary-navigation__nav-link">Features</a></li>
-              <li><a href="#" class="link primary-navigation__nav-link">Pricing</a></li>
-              <li><a href="#" class="link primary-navigation__nav-link">Contact</a></li>
+              <li class="primary-navigation__nav-item">
+                <a href="#" class="link primary-navigation__nav-link">Features</a>
+              </li>
+              <li class="primary-navigation__nav-item">
+                <a href="#" class="link primary-navigation__nav-link">Pricing</a>
+              </li>
+              <li class="primary-navigation__nav-item">
+                <a href="#" class="link primary-navigation__nav-link">Contact</a>
+              </li>
             </ul>
-            <a href="#" class="button button--accent button--nav">Login</a>
-            <ul class="primary-navigation__socials | flex">
+            <a href="#" class="button button--accent primary-navigation__button">Login</a>
+            <ul class="primary-navigation__socials | flex-socials">
               <li>
                 <a aria-label="Facebook" href="#" class="social-link">
                   <img src="./dist/images/icon-facebook.svg" alt="">

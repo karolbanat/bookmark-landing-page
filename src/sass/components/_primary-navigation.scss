@@ -1,0 +1,103 @@
+@use '../abstracts/mixins' as mxn;
+@use '../abstracts/functions' as func;
+
+.primary-navigation {
+	position: relative;
+	z-index: 9999;
+	padding-block: var(--spacer-rem-500);
+	@include mxn.mq(medium) {
+		padding-block: var(--spacer-rem-600);
+	}
+
+	& [data-front] {
+		z-index: 99999;
+	}
+
+	&__nav {
+		--nav-gap: var(--spacer-rem-300);
+		display: flex;
+		gap: var(--nav-gap);
+
+		@include mxn.max-mq(medium) {
+			$nav-bg: func.get-color(neutral, 700);
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			flex-direction: column;
+			padding-block-start: 10.5rem;
+			padding-block-end: var(--spacer-rem-600);
+			padding-inline: var(--spacer-rem-300);
+			width: 100%;
+			height: 100vh;
+			background-color: fade-out($nav-bg, 0.05);
+
+			&[data-expanded] {
+				display: flex;
+			}
+		}
+		@include mxn.mq(medium) {
+			--nav-gap: var(--spacer-rem-600);
+			align-items: center;
+		}
+	}
+
+	&__nav-list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+		@include mxn.mq(medium) {
+			flex-direction: row;
+			gap: var(--nav-gap);
+		}
+	}
+
+	&__nav-item {
+		@include mxn.max-mq(medium) {
+			$border-clr: func.get-color(neutral, 100);
+			padding-block: var(--spacer-em-300);
+			width: 100%;
+			border-block-start: 1px solid fade-out($border-clr, 0.85);
+			&:last-of-type {
+				border-block-end: 1px solid fade-out($border-clr, 0.85);
+			}
+		}
+	}
+
+	&__nav-link {
+		--link-clr: var(--clr-neutral-100);
+		font-size: var(--fz-nav-link);
+		@include mxn.mq(medium) {
+			--link-clr: var(--clr-neutral-700);
+		}
+	}
+
+	&__button {
+		@include mxn.max-mq(medium) {
+			--button-clr: var(--clr-neutral-100);
+			--button-bg: transparent;
+			--button-border: var(--clr-neutral-100);
+			--button-hover-clr: var(--button-clr);
+			--button-hover-bg: var(--button-bg);
+			padding-block: var(--spacer-em-200);
+			font-size: var(--fz-nav-link);
+			text-transform: uppercase;
+		}
+	}
+
+	&__toggle-button {
+		@include mxn.mq(medium) {
+			display: none;
+		}
+	}
+
+	&__socials {
+		margin-block-start: auto;
+		margin-inline: auto;
+		@include mxn.mq(medium) {
+			display: none;
+		}
+	}
+}

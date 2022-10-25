@@ -1,0 +1,9 @@
+.social-link {
+	text-decoration: none;
+	cursor: pointer;
+
+	&:is(:hover, :focus) img {
+		filter: brightness(0) saturate(100%) invert(43%) sepia(76%) saturate(811%) hue-rotate(321deg) brightness(98%)
+			contrast(100%);
+	}
+}
