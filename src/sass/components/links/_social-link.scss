@@ -1,9 +1,14 @@
 .social-link {
+	display: inline-block;
 	text-decoration: none;
 	cursor: pointer;
 
-	&:is(:hover, :focus) img {
-		filter: brightness(0) saturate(100%) invert(43%) sepia(76%) saturate(811%) hue-rotate(321deg) brightness(98%)
-			contrast(100%);
+	&:is(:hover, :focus) {
+		animation: shake 2s ease-in-out infinite;
+
+		img {
+			filter: brightness(0) saturate(100%) invert(43%) sepia(76%) saturate(811%) hue-rotate(321deg) brightness(98%)
+				contrast(100%);
+		}
 	}
 }
