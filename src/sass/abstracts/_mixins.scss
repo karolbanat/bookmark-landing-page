@@ -15,3 +15,17 @@
 		@content;
 	}
 }
+
+@mixin pill-shape {
+	/* measurement from design */
+	--pill-width: 57.7rem;
+	--pill-height: 20.3rem;
+	width: var(--pill-width);
+	height: var(--pill-height);
+	background-color: var(--pill-color, var(--clr-primary-400));
+	border-radius: var(--borr-900);
+	@include mq(large) {
+		--pill-width: 100rem;
+		--pill-height: 35.2rem;
+	}
+}

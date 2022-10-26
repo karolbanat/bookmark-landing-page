@@ -12,3 +12,8 @@
 	align-items: center;
 	gap: var(--flex-space-between-spacer, 1em);
 }
+
+.flex-button-group {
+	align-items: center;
+	gap: var(--spacer-rem-200, 1em);
+}

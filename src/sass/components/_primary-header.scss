@@ -1,0 +1,86 @@
+@use '../abstracts/mixins' as mxn;
+
+.primary-header {
+	overflow-x: hidden;
+
+	&__heading {
+		margin-bottom: var(--spacer-em-200);
+		font-size: var(--fz-800);
+		line-height: 1.1;
+		letter-spacing: var(--ls-100);
+		color: var(--clr-neutral-700);
+	}
+
+	& p {
+		margin-bottom: var(--spacer-rem-400);
+		letter-spacing: var(--ls-100);
+	}
+
+	/* smaller padding form button on smaller screens */
+	& .button {
+		@include mxn.max-mq(small) {
+			padding-inline: var(--spacer-em-200);
+		}
+	}
+
+	/* content and image container */
+	&__intro {
+		--gap: var(--spacer-rem-375);
+		display: flex;
+		flex-direction: column-reverse; // to display image on top on smaller screens
+		align-items: center;
+		gap: var(--gap);
+		margin-top: clamp(var(--spacer-rem-500), 5vw, var(--spacer-rem-800)); // distance from navigation
+		@include mxn.mq(medium) {
+			flex-direction: row;
+			& > * {
+				/* width for double columns subtracting half of current gap */
+				width: calc(50% - var(--gap) / 2);
+			}
+		}
+		@include mxn.mq(large) {
+			align-items: flex-start;
+		}
+	}
+
+	/* container with text and buttons */
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		@include mxn.mq(medium) {
+			align-items: flex-start;
+		}
+		@include mxn.mq(large) {
+			padding-block: var(--spacer-rem-900);
+		}
+	}
+
+	&__image-container {
+		position: relative;
+		margin-bottom: var(--spacer-rem-400);
+		@include mxn.mq(medium) {
+			margin-bottom: 0;
+		}
+
+		/* pill shape background */
+		&::after {
+			@include mxn.pill-shape;
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 3.8rem; // measurement from design
+			z-index: -10;
+			@include mxn.mq(medium) {
+				left: 15rem; // measurement from design
+			}
+		}
+
+		& img {
+			@include mxn.mq(large) {
+				/* allow image to overflow */
+				max-width: unset;
+			}
+		}
+	}
+}
