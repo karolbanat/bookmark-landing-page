@@ -1,3 +1,16 @@
 .margin-inline-auto {
 	margin-inline: auto;
 }
+
+.features-section-spacer {
+	margin-block-start: clamp(8.8rem, 20rem - 15vw, 13rem);
+	margin-block-end: clamp(8.8rem, 15vw, 13rem);
+}
+
+.download-section-spacer {
+	margin-block: clamp(8.8rem, 15vw, 15rem);
+}
+
+.faq-section-spacer {
+	margin-block: clamp(12.5rem, 15vw, 15rem);
+}

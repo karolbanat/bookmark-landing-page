@@ -1,6 +1,7 @@
 @use '../abstracts/mixins' as mxn;
 
 .primary-header {
+	padding-block-end: var(--spacer-rem-200);
 	overflow-x: hidden;
 
 	&__heading {
