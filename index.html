@@ -18,7 +18,7 @@
 <body>
 
   <header class="primary-header">
-    <nav class="primary-navigation">
+    <nav aria-label="Primary" class="primary-navigation">
       <div class="container">
         <div class="flex-space-between">
           <a href="#" data-front><img src="./dist/images/logo-bookmark.svg" alt="Bookmark logo"></a>
@@ -87,22 +87,20 @@
         <div class="features-tabs">
           <ul class="features-tabs__controls">
             <li>
-              <button aria-controls="simple-bookmarking-tab" aria-expanded="false"
-                      class="features-tabs__tab-button">Simple
-                Bookmarking</button>
+              <button aria-controls="simple-bookmarking-tab" aria-expanded="true" data-underline-origin="left"
+                      class="features-tabs__tab-button">Simple Bookmarking</button>
             </li>
             <li>
-              <button aria-controls="speedy-searching-tab" aria-expanded="false"
-                      class="features-tabs__tab-button">Speedy
-                Searching</button>
+              <button aria-controls="speedy-searching-tab" aria-expanded="false" data-underline-origin="left"
+                      class="features-tabs__tab-button">Speedy Searching</button>
             </li>
             <li>
-              <button aria-controls="easy-sharing-tab" aria-expanded="false" class="features-tabs__tab-button">Easy
-                Sharing</button>
+              <button aria-controls="easy-sharing-tab" aria-expanded="false" data-underline-origin="left"
+                      class="features-tabs__tab-button">Easy Sharing</button>
             </li>
           </ul>
           <!-- Simple bookmarking tab start -->
-          <div id="simple-bookmarking-tab" class="features-tab">
+          <div id="simple-bookmarking-tab" class="features-tab | even-columns">
             <div class="feature-tab__image-container">
               <img src="./dist/images/illustration-features-tab-1.svg" alt="">
             </div>
@@ -115,7 +113,7 @@
           </div>
           <!-- Simple bookmarking tab end -->
           <!-- Speedy searching tab start -->
-          <div id="speedy-searching-tab" class="features-tab">
+          <div id="speedy-searching-tab" class="features-tab active | even-columns">
             <div class="feature-tab__image-container">
               <img src="./dist/images/illustration-features-tab-2.svg" alt="">
             </div>
@@ -128,7 +126,7 @@
           </div>
           <!-- Speedy searching tab end -->
           <!-- Easy sharing tab start -->
-          <div id="easy-sharing-tab" class="features-tab">
+          <div id="easy-sharing-tab" class="features-tab | even-columns">
             <div class="feature-tab__image-container">
               <img src="./dist/images/illustration-features-tab-2.svg" alt="">
             </div>
@@ -300,7 +298,7 @@
             <li><a href="#" class="link">Contact</a></li>
           </ul>
         </nav>
-        <ul class="flex">
+        <ul class="flex-socials">
           <li>
             <a aria-label="Facebook" href="#" class="social-link">
               <img src="./dist/images/icon-facebook.svg" alt="">

@@ -1,0 +1,11 @@
+@use '../abstracts/mixins' as mxn;
+
+.even-columns {
+	display: grid;
+	gap: var(--even-columns-gap, 1em);
+
+	@include mxn.mq(medium) {
+		grid-auto-flow: column;
+		grid-auto-columns: 1fr;
+	}
+}
