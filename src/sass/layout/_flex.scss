@@ -17,3 +17,10 @@
 	align-items: center;
 	gap: var(--spacer-rem-200, 1em);
 }
+
+.flex-cards {
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: var(--spacer-rem-450);
+}
