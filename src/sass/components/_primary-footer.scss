@@ -1,0 +1,30 @@
+@use '../abstracts/mixins' as mxn;
+
+.primary-footer {
+	padding-block: var(--spacer-rem-550);
+	@include mxn.mq(medium) {
+		padding-block: var(--spacer-rem-400);
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacer-rem-550);
+		text-align: center;
+		@include mxn.mq(medium) {
+			flex-direction: row;
+			gap: var(--spacer-rem-800);
+		}
+	}
+
+	&__nav-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacer-rem-400);
+		@include mxn.mq(medium) {
+			flex-direction: row;
+			gap: var(--spacer-rem-550);
+		}
+	}
+}

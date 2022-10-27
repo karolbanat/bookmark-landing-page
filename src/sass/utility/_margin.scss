@@ -1,5 +1,13 @@
+@use '../abstracts/mixins' as mxn;
+
 .margin-inline-auto {
 	margin-inline: auto;
+}
+
+.margin-inline-start-auto-md {
+	@include mxn.mq(medium) {
+		margin-inline-start: auto;
+	}
 }
 
 .margin-block-end-clamp-500 {
