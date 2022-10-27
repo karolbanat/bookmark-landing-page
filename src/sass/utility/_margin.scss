@@ -2,6 +2,10 @@
 	margin-inline: auto;
 }
 
+.margin-block-end-clamp-500 {
+	margin-block-end: clamp(var(--spacer-rem-500), 4vw, var(--spacer-rem-600));
+}
+
 .features-section-spacer {
 	margin-block-start: clamp(8.8rem, 20rem - 15vw, 13rem);
 	margin-block-end: clamp(8.8rem, 15vw, 13rem);
