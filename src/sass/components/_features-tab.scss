@@ -1,0 +1,7 @@
+@use '../abstracts/mixins' as mxn;
+
+.features-tab {
+	&:not(.active) {
+		display: none;
+	}
+}

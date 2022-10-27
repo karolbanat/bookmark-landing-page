@@ -1,0 +1,92 @@
+@use '../abstracts/mixins' as mxn;
+
+.features-tabs {
+	display: grid;
+	gap: var(--spacer-rem-900);
+
+	&__controls-list {
+		--max-width: 73rem;
+		display: grid;
+		margin-inline: auto;
+		width: 100%;
+		max-inline-size: var(--max-width);
+		@include mxn.mq(medium) {
+			grid-auto-flow: column;
+			grid-auto-columns: 1fr;
+		}
+
+		/* border bottom for each element */
+		& li {
+			border-block-end: 1px solid var(--clr-primary-320);
+			/* for first element border on top for smaller screens */
+			&:first-child {
+				border-block-start: 1px solid var(--clr-primary-320);
+				@include mxn.mq(medium) {
+					border-block-start: none;
+				}
+			}
+		}
+	}
+
+	&__tab-button {
+		--underline-width: 14.3rem;
+		--underline-height: 0.4rem;
+		--text-clr: var(--clr-neutral-775);
+		position: relative;
+		padding: var(--spacer-em-400);
+		width: 100%;
+		font-size: var(--fz-500);
+		color: var(--text-clr);
+		border: none;
+		background: none;
+		cursor: pointer;
+		transition: color 0.4s ease;
+		@include mxn.mq(medium) {
+			--underline-width: 100%;
+
+			/* change side from which the underline will scale up */
+			&[data-underline-origin='left'] {
+				&::after {
+					transform-origin: left;
+				}
+			}
+
+			&[data-underline-origin='right'] {
+				&::after {
+					transform-origin: right;
+				}
+			}
+		}
+
+		&:hover,
+		&:focus {
+			color: var(--clr-accent-400);
+		}
+
+		/* active button underline */
+		&::after {
+			content: '';
+			/* position */
+			position: absolute;
+			bottom: 0;
+			left: calc(50% - var(--underline-width) / 2);
+			/* sizing */
+			width: var(--underline-width);
+			height: var(--underline-height);
+			/* appearance */
+			background-color: var(--clr-accent-400);
+			scale: 0 1;
+			transform-origin: center;
+			transition: scale 0.4s ease;
+		}
+
+		/* when button expanded change color and show undeline */
+		&[aria-expanded='true'] {
+			--text-clr: var(--clr-neutral-700);
+
+			&::after {
+				scale: 1 1;
+			}
+		}
+	} // tab button styles end
+}
