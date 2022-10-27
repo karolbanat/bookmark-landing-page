@@ -43,4 +43,20 @@
 			}
 		}
 	}
+
+	/* show different animations for tabs depending on screen size */
+	&.showing &__image-container {
+		img {
+			animation: fade-in 1.5s ease-in-out;
+			@include mxn.mq(large) {
+				animation: fade-in-left 1.5s ease-in-out;
+			}
+		}
+	}
+	&.showing &__body {
+		animation: fade-in 1.5s ease-in-out;
+		@include mxn.mq(large) {
+			animation: fade-in-right 1.5s ease-in-out;
+		}
+	}
 }
