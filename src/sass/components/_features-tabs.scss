@@ -1,19 +1,17 @@
 @use '../abstracts/mixins' as mxn;
+@use '../layout/grid';
 
 .features-tabs {
 	display: grid;
 	gap: var(--spacer-rem-900);
 
 	&__controls-list {
+		@extend .even-columns;
 		--max-width: 73rem;
-		display: grid;
+		--even-columns-spacer: 0;
 		margin-inline: auto;
 		width: 100%;
 		max-inline-size: var(--max-width);
-		@include mxn.mq(medium) {
-			grid-auto-flow: column;
-			grid-auto-columns: 1fr;
-		}
 
 		/* border bottom for each element */
 		& li {

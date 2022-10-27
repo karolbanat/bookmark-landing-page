@@ -1,7 +1,46 @@
 @use '../abstracts/mixins' as mxn;
+@use '../layout/grid';
 
 .features-tab {
+	@extend .even-columns;
+	--even-columns-spacer: var(--spacer-rem-900);
+	place-items: center;
+	@include mxn.mq(medium) {
+		--even-columns-spacer: var(--spacer-rem-375);
+	}
+
 	&:not(.active) {
 		display: none;
+	}
+
+	&__image-container {
+		position: relative;
+
+		&::after {
+			@include mxn.pill-shape;
+			content: '';
+			position: absolute;
+			/* measurement from design */
+			right: 3.6rem;
+			bottom: -3.6rem;
+			z-index: -10;
+			@include mxn.mq(medium) {
+				/* measurement from design */
+				right: 6.4rem;
+				bottom: -9rem;
+			}
+		}
+	}
+
+	&__body {
+		@include mxn.mq(medium) {
+			padding-inline-start: clamp(4rem, 7.5vw, 9.4rem);
+		}
+		& p {
+			margin-block: var(--spacer-em-300);
+			@include mxn.mq(medium) {
+				margin-block-end: var(--spacer-em-600);
+			}
+		}
 	}
 }

@@ -2,7 +2,7 @@
 
 .even-columns {
 	display: grid;
-	gap: var(--even-columns-gap, 1em);
+	gap: var(--even-columns-spacer, 1em);
 
 	@include mxn.mq(medium) {
 		grid-auto-flow: column;
