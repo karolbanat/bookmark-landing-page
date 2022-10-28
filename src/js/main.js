@@ -1,7 +1,20 @@
+/* navigation elements */
 const navToggle = document.querySelector('.toggle-button');
 const primaryNav = document.querySelector('#primary-nav');
+/* feature tabs elements */
 const featuresControlBtns = document.querySelectorAll('.features-tabs__tab-button');
 const featureTabs = document.querySelectorAll('.features-tab');
+/* accordion elements */
+const accordion = document.querySelector('.accordion');
+const accordionBtns = accordion.querySelectorAll('.accordion__control');
+
+/* kay mapping */
+const KEY_CODES = {
+	end: 35,
+	home: 36,
+	arrowUp: 38,
+	arrowDown: 40,
+};
 
 /* navigation handling */
 const handleNavToggle = e => {
@@ -76,8 +89,55 @@ const initFeaturesControlBtns = () => {
 	featuresControlBtns.forEach((ctrlBtn, idx) => ctrlBtn.setAttribute('data-index', idx));
 };
 
+/* accordion handling */
+const handleKeyPress = e => {
+	const keyCode = e.keyCode;
+	const idx = Array.from(accordionBtns).findIndex(btn => btn === e.target);
+	switch (keyCode) {
+		case KEY_CODES.arrowUp:
+			e.preventDefault();
+			moveFocusUp(idx);
+			break;
+		case KEY_CODES.arrowDown:
+			e.preventDefault();
+			moveFocusDown(idx);
+			break;
+		case KEY_CODES.home:
+			e.preventDefault();
+			moveFocusToFirstElement();
+			break;
+		case KEY_CODES.end:
+			e.preventDefault();
+			moveFocusToLastElement();
+			break;
+	}
+};
+
+const moveFocusUp = idx => {
+	const prevIdx = (accordionBtns.length + idx - 1) % accordionBtns.length;
+	accordionBtns[prevIdx].focus();
+	return prevIdx;
+};
+
+const moveFocusDown = idx => {
+	const nextIdx = (idx + 1) % accordionBtns.length;
+	accordionBtns[nextIdx].focus();
+	return nextIdx;
+};
+
+const moveFocusToFirstElement = _ => {
+	accordionBtns[0].focus();
+	return 0;
+};
+
+const moveFocusToLastElement = _ => {
+	accordionBtns[accordionBtns.length - 1].focus();
+	return accordionBtns.length - 1;
+};
+
 /* event listeners */
 navToggle.addEventListener('click', handleNavToggle);
 featuresControlBtns.forEach(ctrlBtn => ctrlBtn.addEventListener('click', handleFeaturesControlButton));
+accordionBtns.forEach(btn => btn.addEventListener('keydown', handleKeyPress));
 
 initFeaturesControlBtns();
