@@ -1,0 +1,57 @@
+@use '../../abstracts/mixins' as mxn;
+
+.opt-in-form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacer-rem-200);
+	@include mxn.mq(medium) {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
+	&__input-box {
+		flex: 1;
+
+		&[data-status] {
+			background-color: var(--status-clr);
+			border: 2px solid var(--status-clr);
+			border-radius: var(--borr-200);
+		}
+
+		&[data-status='success'] {
+			--status-clr: var(--clr-accent-300);
+		}
+
+		&[data-status='error'] {
+			--status-clr: var(--clr-accent-400);
+		}
+	}
+
+	&__input-box[data-status] &__message {
+		display: block;
+	}
+
+	&__input {
+		width: 100%;
+		padding-block: var(--spacer-em-300);
+		padding-inline: var(--spacer-rem-250);
+		font-size: var(--fz-300);
+		color: var(--clr-neutral-700);
+		line-height: 1;
+		border: none;
+		border-radius: var(--borr-200);
+
+		&::placeholder {
+			color: var(--clr-neutral-400);
+		}
+	}
+
+	&__message {
+		display: none;
+		padding-block: var(--spacer-em-200);
+		padding-inline: var(--spacer-em-400);
+		font-size: var(--fz-100);
+		font-style: italic;
+		color: var(--clr-neutral-100);
+	}
+}

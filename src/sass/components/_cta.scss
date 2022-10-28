@@ -18,6 +18,9 @@
 		text-transform: uppercase;
 		letter-spacing: var(--ls-800);
 		line-height: 1.1;
+		@include mxn.mq(medium) {
+			margin-block-end: calc(var(--spacer-em-300) * 2);
+		}
 	}
 
 	&__heading {
