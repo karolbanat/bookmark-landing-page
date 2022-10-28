@@ -7,7 +7,15 @@ const featureTabs = document.querySelectorAll('.features-tab');
 /* accordion elements */
 const accordion = document.querySelector('.accordion');
 const accordionBtns = accordion.querySelectorAll('.accordion__control');
+/* form elements */
+const optInForm = document.querySelector('.opt-in-form');
+const optInFormInputBox = optInForm.querySelector('.opt-in-form__input-box');
+const optInFormInput = optInForm.querySelector('.opt-in-form__input[type="email"]');
+const optInFormSubmitBtn = optInForm.querySelector('button[type="submit"]');
+const optInFormMessage = optInForm.querySelector('.opt-in-form__message');
 
+const EMAIL_REGEX =
+	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 /* kay mapping */
 const KEY_CODES = {
 	end: 35,
@@ -135,9 +143,29 @@ const moveFocusToLastElement = _ => {
 	return accordionBtns.length - 1;
 };
 
+/* form handling */
+const handleOptInSubmit = e => {
+	e.preventDefault();
+	const value = optInFormInput.value;
+
+	if (isBlank(value)) showMessage('error', 'This field cannot be empty');
+	else if (!isValidEmail(value)) showMessage('error', "Whoops, make sure it's an email");
+	else showMessage('success', 'Successfully registered. Check your email box.');
+};
+
+const showMessage = (status, message) => {
+	optInFormInputBox.setAttribute('data-status', status);
+	optInFormMessage.innerText = message;
+};
+
+const isValidEmail = email => EMAIL_REGEX.test(email);
+
+const isBlank = value => value === '';
+
 /* event listeners */
 navToggle.addEventListener('click', handleNavToggle);
 featuresControlBtns.forEach(ctrlBtn => ctrlBtn.addEventListener('click', handleFeaturesControlButton));
 accordionBtns.forEach(btn => btn.addEventListener('keydown', handleKeyPress));
+optInFormSubmitBtn.addEventListener('click', handleOptInSubmit);
 
 initFeaturesControlBtns();
