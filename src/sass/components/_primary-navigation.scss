@@ -2,8 +2,6 @@
 @use '../abstracts/functions' as func;
 
 .primary-navigation {
-	position: relative;
-	z-index: 9999;
 	padding-block: var(--spacer-rem-500);
 	@include mxn.mq(medium) {
 		padding-block: var(--spacer-rem-600);
@@ -18,6 +16,7 @@
 		--nav-gap: var(--spacer-rem-300);
 		display: flex;
 		gap: var(--nav-gap);
+		z-index: 9999;
 
 		/* styles for small screens*/
 		@include mxn.max-mq(medium) {
