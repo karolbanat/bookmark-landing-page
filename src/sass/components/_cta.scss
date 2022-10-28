@@ -1,0 +1,27 @@
+@use '../abstracts/mixins' as mxn;
+
+.cta {
+	padding-block: var(--spacer-rem-750);
+	@include mxn.mq(medium) {
+		padding-block: var(--spacer-rem-900);
+	}
+
+	&__body {
+		@include mxn.mq(medium) {
+			padding-inline: var(--spacer-rem-600);
+		}
+	}
+
+	&__kicker {
+		margin-block-end: var(--spacer-em-300);
+		font-size: var(--fz-200);
+		text-transform: uppercase;
+		letter-spacing: var(--ls-800);
+		line-height: 1.1;
+	}
+
+	&__heading {
+		margin-bottom: var(--spacer-em-400);
+		color: inherit;
+	}
+}
