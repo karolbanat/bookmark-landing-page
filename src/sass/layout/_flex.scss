@@ -2,6 +2,10 @@
 	display: flex;
 }
 
+.flex-column {
+	flex-direction: column;
+}
+
 .flex-socials {
 	align-items: center;
 	gap: var(--spacer-rem-500, 1em);
