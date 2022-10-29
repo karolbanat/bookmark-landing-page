@@ -95,6 +95,8 @@
 		/* changing padding for navigation button */
 		padding-block: var(--spacer-em-275);
 		padding-inline: var(--spacer-em-700);
+		text-transform: uppercase;
+		letter-spacing: var(--ls-600);
 		@include mxn.max-mq(medium) {
 			/* overriding .button class styling for smaller screens */
 			--button-clr: var(--clr-neutral-100);
@@ -103,7 +105,6 @@
 			--button-hover-clr: var(--button-clr);
 			--button-hover-bg: var(--button-bg);
 			font-size: var(--fz-nav-link);
-			text-transform: uppercase;
 		}
 	}
 

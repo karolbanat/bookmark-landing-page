@@ -4,8 +4,8 @@ This is a solution to the [Bookmark landing page challenge on Frontend Mentor](h
 
 ## Links
 
-- Solution URL: [Frontend Mentor Solution Page](https://your-solution-url.com)
-- Live Site URL: [GitHub Pages Site](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor Solution Page](https://www.frontendmentor.io/solutions/bookmark-landing-page-tI3vrWgUu8)
+- Live Site URL: [GitHub Pages Site](https://karolbanat.github.io/bookmark-landing-page/)
 
 ## Built with
 
