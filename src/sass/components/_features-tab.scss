@@ -15,6 +15,9 @@
 
 	&__image-container {
 		position: relative;
+		@include mxn.mq(medium) {
+			place-self: center right;
+		}
 
 		&::after {
 			@include mxn.pill-shape;
