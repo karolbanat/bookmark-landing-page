@@ -31,6 +31,12 @@
 		display: block;
 	}
 
+	&__input-box[data-status='error'] &__input {
+		background-image: url('../images/icon-error.svg');
+		background-repeat: no-repeat;
+		background-position: center right var(--spacer-rem-200);
+	}
+
 	&__input {
 		width: 100%;
 		padding-block: var(--spacer-em-300);
