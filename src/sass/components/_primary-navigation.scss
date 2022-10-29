@@ -3,6 +3,11 @@
 
 .primary-navigation {
 	padding-block: var(--spacer-rem-500);
+	@include mxn.max-mq(medium) {
+		&[data-nav-expanded] &__logo {
+			filter: brightness(0) invert(1);
+		}
+	}
 	@include mxn.mq(medium) {
 		padding-block: var(--spacer-rem-600);
 	}

@@ -1,6 +1,7 @@
 /* navigation elements */
-const navToggle = document.querySelector('.toggle-button');
-const primaryNav = document.querySelector('#primary-nav');
+const primaryNavigation = document.querySelector('.primary-navigation');
+const navToggle = primaryNavigation.querySelector('.toggle-button');
+const primaryNav = primaryNavigation.querySelector('#primary-nav');
 /* feature tabs elements */
 const featuresControlBtns = document.querySelectorAll('.features-tabs__tab-button');
 const featureTabs = document.querySelectorAll('.features-tab');
@@ -28,6 +29,7 @@ const KEY_CODES = {
 const handleNavToggle = e => {
 	const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
 	navToggle.setAttribute('aria-expanded', !isExpanded);
+	primaryNavigation.toggleAttribute('data-nav-expanded', !isExpanded);
 	navigationExpanding(!isExpanded);
 };
 
